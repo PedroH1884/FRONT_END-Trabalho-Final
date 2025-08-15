@@ -62,4 +62,39 @@ document.addEventListener('DOMContentLoaded', () => {
     btnFecharBarraLateral.addEventListener('click', fecharBarraLateral);
     fundoBarraLateral.addEventListener('click', fecharBarraLateral);
 
+    /* --- LÓGICA PARA CARREGAR DADOS DA FAKE API --- */
+    async function carregarMedicos() {
+        const listaMedicosDiv = document.getElementById('lista-medicos');
+        
+        // ===============================================================================
+        // IMPORTANTE: Troque pela URL da sua API criada no My JSON Server
+        // Exemplo: 'https://my-json-server.typicode.com/seu-usuario/seu-repo/medicos'
+        // ===============================================================================
+        const apiUrl = 'https://my-json-server.typicode.com/typicode/demo/posts'; // Usando um placeholder que funciona
+
+        try {
+            const resposta = await fetch(apiUrl);
+            if (!resposta.ok) { throw new Error(`Erro na rede: ${resposta.status}`); }
+            const dados = await resposta.json();
+
+            listaMedicosDiv.innerHTML = ''; 
+
+            dados.forEach(item => {
+                const medicoCard = document.createElement('div');
+                medicoCard.className = 'card-medico';
+                medicoCard.innerHTML = `
+                    <h3>${item.title || item.nome}</h3>
+                    <p>Especialidade #${item.id || item.crm}</p>
+                `; 
+                listaMedicosDiv.appendChild(medicoCard);
+            });
+
+        } catch (erro) {
+            console.error('Falha ao buscar os dados:', erro);
+            listaMedicosDiv.innerHTML = '<p>Não foi possível carregar os dados no momento. Tente novamente mais tarde.</p>';
+        }
+    }
+
+    carregarMedicos();
+
 });

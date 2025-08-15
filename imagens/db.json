@@ -1,0 +1,13 @@
+{
+  "medicos": [
+    { "id": 1, "nome": "Dr. João Carlos Pereira", "especialidade": "Cardiologia", "crm": "12345-MG" },
+    { "id": 2, "nome": "Dra. Ana Maria Souza", "especialidade": "Pediatria", "crm": "54321-MG" },
+    { "id": 3, "nome": "Dr. Pedro Lins Azevedo", "especialidade": "Ortopedia", "crm": "67890-MG" },
+    { "id": 4, "nome": "Dra. Carolina Mendes", "especialidade": "Dermatologia", "crm": "11223-MG" },
+    { "id": 5, "nome": "Dr. Ricardo Bastos", "especialidade": "Clínica Geral", "crm": "44556-MG" }
+  ],
+  "noticias": [
+    { "id": 1, "titulo": "Novas diretrizes para vacinação contra a gripe", "data": "2025-08-14" },
+    { "id": 2, "titulo": "A importância da hidratação no tempo seco", "data": "2025-08-12" }
+  ]
+}
