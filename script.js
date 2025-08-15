@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ===============================================================================
         // IMPORTANTE: Lembre-se de usar a URL da sua API aqui
         // ===============================================================================
-        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/medicos';
+        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/medicos?v=${new Date().getTime()}';
 
         try {
             const resposta = await fetch(apiUrl);
