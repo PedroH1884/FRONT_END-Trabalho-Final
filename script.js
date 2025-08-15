@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // IMPORTANTE: Troque pela URL da sua API criada no My JSON Server
         // Exemplo: 'https://my-json-server.typicode.com/seu-usuario/seu-repo/medicos'
         // ===============================================================================
-        const apiUrl = 'https://my-json-server.typicode.com/typicode/demo/posts'; // Usando um placeholder que funciona
+        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/medicos'; // Usando um placeholder que funciona
 
         try {
             const resposta = await fetch(apiUrl);
