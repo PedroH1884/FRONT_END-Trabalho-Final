@@ -67,24 +67,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const listaMedicosDiv = document.getElementById('lista-medicos');
         
         // ===============================================================================
-        // IMPORTANTE: Troque pela URL da sua API criada no My JSON Server
-        // Exemplo: 'https://my-json-server.typicode.com/seu-usuario/seu-repo/medicos'
+        // IMPORTANTE: Lembre-se de usar a URL da sua API aqui
         // ===============================================================================
-        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/medicos'; // Usando um placeholder que funciona
+        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/medicos';
 
         try {
             const resposta = await fetch(apiUrl);
             if (!resposta.ok) { throw new Error(`Erro na rede: ${resposta.status}`); }
-            const dados = await resposta.json();
+            const medicos = await resposta.json();
 
             listaMedicosDiv.innerHTML = ''; 
 
-            dados.forEach(item => {
+            // Laço corrigido para usar os campos corretos (nome, especialidade)
+            medicos.forEach(medico => {
                 const medicoCard = document.createElement('div');
                 medicoCard.className = 'card-medico';
                 medicoCard.innerHTML = `
-                    <h3>${item.title || item.nome}</h3>
-                    <p>Especialidade #${item.id || item.crm}</p>
+                    <h3>${medico.nome}</h3>
+                    <p>${medico.especialidade}</p>
                 `; 
                 listaMedicosDiv.appendChild(medicoCard);
             });
