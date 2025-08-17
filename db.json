@@ -12,30 +12,36 @@
     { "id": 2, "titulo": "A importância da hidratação no tempo seco", "data": "2025-08-12" }
   ],
   "hospitais": [
-  {
-    "id": 1,
-    "nome": "Hospital Central de Salinas",
-    "status": "livre"
-  },
-  {
-    "id": 2,
-    "nome": "Clínica Santa Lúcia",
-    "status": "moderado"
-  },
-  {
-    "id": 3,
-    "nome": "Pronto Atendimento Unimed",
-    "status": "lotado"
-  },
-  {
-    "id": 4,
-    "nome": "Hospital Pediátrico Criança Feliz",
-    "status": "livre"
-  },
-  {
-    "id": 5,
-    "nome": "Centro Ortopédico da Cidade",
-    "status": "moderado"
-  }
-]
+   {
+      "id": 1,
+      "nome": "Hospital Central de Salinas",
+      "status": "livre",
+      "localizacao": "Praça Dr. João, 123, Centro, Salinas - MG",
+      "medicos_atuais": [
+        { "nome": "Dr. João Carlos Pereira", "especialidade": "Cardiologia" },
+        { "nome": "Dra. Helena Costa", "especialidade": "Clínica Geral" },
+        { "nome": "Dr. Marcos Rocha", "especialidade": "Ortopedia" }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Clínica Santa Lúcia",
+      "status": "moderado",
+      "localizacao": "Av. Brasil, 456, Bairro Novo, Salinas - MG",
+      "medicos_atuais": [
+        { "nome": "Dra. Ana Maria Souza", "especialidade": "Pediatria" },
+        { "nome": "Dr. Ricardo Bastos", "especialidade": "Clínica Geral" }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Pronto Atendimento Unimed",
+      "status": "lotado",
+      "localizacao": "Rua das Palmeiras, 789, Bairro Central, Salinas - MG",
+      "medicos_atuais": [
+        { "nome": "Dra. Carolina Mendes", "especialidade": "Dermatologia" },
+        { "nome": "Dr. Pedro Lins Azevedo", "especialidade": "Ortopedia" }
+      ]
+    }
+  ]
 }

@@ -186,8 +186,30 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
 
 .nav-principal a.link-ativo { color: #4CAF50; }
 
+/* MODAL DE DETALHES DO HOSPITAL */
+
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.6); }
+.modal-conteudo { background-color: #fff; margin: 10% auto; padding: 30px; border-radius: 8px; width: 90%; max-width: 600px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.btn-fechar-modal { color: #aaa; position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; }
+.btn-fechar-modal:hover { color: #000; }
+#modal-hospital-nome { margin-top: 0; margin-bottom: 25px; color: #333; }
+.modal-detalhe-item { display: flex; align-items: center; margin-bottom: 15px; color: #555; }
+.modal-detalhe-item i { font-size: 18px; color: #4CAF50; margin-right: 15px; width: 20px; text-align: center; }
+#modal-hospital-corpo hr { border: 0; border-top: 1px solid #eee; margin: 25px 0; }
+#modal-hospital-corpo h3 { font-size: 18px; margin-bottom: 15px; color: #333; }
+.lista-medicos-modal { list-style: none; padding-left: 0; }
+.lista-medicos-modal li { margin-bottom: 10px; padding-left: 35px; position: relative; }
+.lista-medicos-modal li::before { content: '\f00c'; /* Ícone de check do Font Awesome */ font-family: 'Font Awesome 5 Free'; font-weight: 900; color: #4CAF50; position: absolute; left: 10px; }
+.lista-medicos-modal .especialidade { color: #777; font-size: 14px; margin-left: 5px; }
+.status-tag { padding: 5px 12px; border-radius: 15px; font-size: 14px; font-weight: bold; color: white; }
 
 /* MODO ESCURO */
+
+body.modo-escuro .modal-conteudo { background-color: #1e1e1e; }
+body.modo-escuro #modal-hospital-nome, body.modo-escuro #modal-hospital-corpo h3 { color: #fff; }
+body.modo-escuro .modal-detalhe-item { color: #bbb; }
+body.modo-escuro .lista-medicos-modal .especialidade { color: #888; }
+body.modo-escuro #modal-hospital-corpo hr { border-top-color: #333; }
 body.modo-escuro .pagina-titulo { background-color: #1a1a1a; border-bottom-color: #333; }
 body.modo-escuro .item-hospital { background-color: #1e1e1e; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 body.modo-escuro .item-hospital:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.3); }

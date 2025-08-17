@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    /*Funções para o Tema (Modo Claro/Escuro)*/
+
+    // ==========================================================================
+    // 1. DECLARAÇÃO DE TODAS AS FUNÇÕES
+    // ==========================================================================
+
+    /* --- Funções para o Tema (Modo Claro/Escuro) --- */
     const aplicarTemaSalvo = () => {
         const corpo = document.body;
         const temaSalvo = localStorage.getItem('theme');
@@ -20,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    /* --- Funções para a Barra Lateral do Usuário --- */
     const abrirBarraLateral = () => {
         const barraLateral = document.getElementById('barra-lateral-usuario');
         const fundoBarraLateral = document.getElementById('fundo-barra-lateral');
@@ -38,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    /*Funções de API (Carregar Dados)*/
+    /* --- Funções de API (Carregar Dados) --- */
     async function carregarMedicos() {
         const listaMedicosDiv = document.getElementById('lista-medicos');
         if (!listaMedicosDiv) return; 
@@ -65,36 +71,107 @@ document.addEventListener('DOMContentLoaded', () => {
         const listaHospitaisDiv = document.getElementById('lista-hospitais');
         if (!listaHospitaisDiv) return;
 
-        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/hospitais?v=${new Date().getTime()';
+        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/hospitais?v=${new Date().getTime()}';
         try {
             const resposta = await fetch(apiUrl);
-            if (!resposta.ok) { throw new Error(`Erro na rede: ${resposta.status}`); }
+            if (!resposta.ok) throw new Error(`Erro: ${resposta.status}`);
             const hospitais = await resposta.json();
             listaHospitaisDiv.innerHTML = ''; 
             hospitais.forEach(hospital => {
                 const hospitalItem = document.createElement('div');
                 hospitalItem.className = 'item-hospital';
                 let statusClasse = hospital.status === 'livre' ? 'status-livre' : hospital.status === 'moderado' ? 'status-moderado' : 'status-lotado';
+                
                 hospitalItem.innerHTML = `
                     <div class="hospital-status">Disponibilidade: <span class="status-bolinha ${statusClasse}"></span></div>
-                    <div class="hospital-botoes"><a href="#" class="btn-hospital">Ver Detalhes</a><a href="#" class="btn-hospital">Agendar</a></div>
+                    <div class="hospital-botoes">
+                        <a href="#" class="btn-hospital btn-ver-detalhes" data-hospital-id="${hospital.id}">Ver Detalhes</a>
+                        <a href="#" class="btn-hospital">Agendar</a>
+                    </div>
                     <h3 class="hospital-nome">${hospital.nome}</h3>`; 
                 listaHospitaisDiv.appendChild(hospitalItem);
             });
-        } catch (erro) {
+        } catch (erro) { 
             console.error('Falha ao buscar os dados dos hospitais:', erro);
             listaHospitaisDiv.innerHTML = '<p>Não foi possível carregar os dados no momento.</p>';
         }
     }
+    
+    const configurarModalHospital = () => {
+        const modal = document.getElementById('modal-hospital');
+        if (!modal) return;
 
-    // EXECUÇÃO E EVENT LISTENERS 
+        const listaHospitaisDiv = document.getElementById('lista-hospitais');
+        const btnFechar = document.getElementById('btn-fechar-modal-hospital');
+        const nomeHospital = document.getElementById('modal-hospital-nome');
+        const localizacaoHospital = document.getElementById('modal-hospital-localizacao');
+        const disponibilidadeHospital = document.getElementById('modal-hospital-disponibilidade');
+        const medicosLista = document.getElementById('modal-hospital-medicos');
 
+        const abrirModalComDados = async (hospitalId) => {
+            nomeHospital.textContent = 'Carregando...';
+            localizacaoHospital.textContent = '';
+            disponibilidadeHospital.innerHTML = '';
+            medicosLista.innerHTML = '';
+            modal.style.display = 'block';
+
+            try {
+                const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/hospitais/${hospitalId}?v=${new Date().getTime()}';
+                const resposta = await fetch(apiUrl);
+                if (!resposta.ok) throw new Error('Hospital não encontrado');
+                const hospital = await resposta.json();
+
+                nomeHospital.textContent = hospital.nome;
+                localizacaoHospital.textContent = hospital.localizacao;
+                
+                let statusTagClasse = hospital.status === 'livre' ? 'status-livre' : hospital.status === 'moderado' ? 'status-moderado' : 'status-lotado';
+                let statusTexto = hospital.status.charAt(0).toUpperCase() + hospital.status.slice(1);
+                let statusTag = `<span class="status-tag ${statusTagClasse}">${statusTexto}</span>`;
+                disponibilidadeHospital.innerHTML = statusTag;
+                
+                if(hospital.medicos_atuais && hospital.medicos_atuais.length > 0) {
+                    const medicosHtml = hospital.medicos_atuais.map(medico => 
+                        `<li>${medico.nome} <span class="especialidade">(${medico.especialidade})</span></li>`
+                    ).join('');
+                    medicosLista.innerHTML = medicosHtml;
+                } else {
+                    medicosLista.innerHTML = '<li>Nenhum médico registrado no momento.</li>';
+                }
+            } catch(erro) {
+                nomeHospital.textContent = 'Erro ao carregar detalhes';
+                console.error(erro);
+            }
+        };
+
+        listaHospitaisDiv.addEventListener('click', (event) => {
+            if (event.target.matches('.btn-ver-detalhes')) {
+                event.preventDefault();
+                const id = event.target.getAttribute('data-hospital-id');
+                abrirModalComDados(id);
+            }
+        });
+
+        const fecharModal = () => modal.style.display = 'none';
+        btnFechar.addEventListener('click', fecharModal);
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                fecharModal();
+            }
+        });
+    };
+
+    // ==========================================================================
+    // 2. EXECUÇÃO E EVENT LISTENERS (Anexar funções aos elementos)
+    // ==========================================================================
+
+    /* --- Lógica do Tema --- */
     const alternadorTema = document.getElementById('alternador-tema');
     if (alternadorTema) {
         alternadorTema.addEventListener('click', alternarTema);
     }
     aplicarTemaSalvo();
 
+    /* --- Lógica da Barra Lateral --- */
     const btnPerfilUsuario = document.getElementById('btn-perfil-usuario');
     const btnFecharBarraLateral = document.getElementById('btn-fechar-barra-lateral');
     const fundoBarraLateral = document.getElementById('fundo-barra-lateral');
@@ -103,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnFecharBarraLateral) btnFecharBarraLateral.addEventListener('click', fecharBarraLateral);
     if (fundoBarraLateral) fundoBarraLateral.addEventListener('click', fecharBarraLateral);
 
+    /* --- Lógica do Carrossel (só na index.html) --- */
     if (document.querySelector('.swiper')) {
         new Swiper('.swiper', {
             loop: true,
@@ -112,7 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    carregarMedicos(); 
+    /* --- Chamadas de API (só rodam nas páginas certas) --- */
+    carregarMedicos();
     carregarHospitais();
+    configurarModalHospital();
 
 });
