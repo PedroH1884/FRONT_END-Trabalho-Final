@@ -35,6 +35,11 @@
             <div class="container">
                 <h1>Hospitais e Clínicas Conveniadas</h1>
                 <p>Verifique a disponibilidade e agende sua consulta.</p>
+                
+                <div class="container-busca">
+                    <i class="fas fa-search icone-busca"></i>
+                    <input type="text" id="campo-busca-hospitais" placeholder="Digite o nome do hospital para filtrar...">
+                </div>
             </div>
         </section>
 
@@ -48,7 +53,29 @@
     </main>
     
     <div id="barra-lateral-usuario" class="barra-lateral">
+        <div class="barra-lateral-cabecalho">
+            <h3>Área do Paciente</h3>
+            <button id="btn-fechar-barra-lateral" class="btn-fechar-barra-lateral">×</button>
         </div>
+        <div class="perfil-barra-lateral">
+            <div class="avatar-perfil"><i class="fas fa-user-circle"></i></div>
+            <div class="info-perfil">
+                <h4>Carlos Silva</h4>
+                <p>carlos.silva@email.com</p>
+            </div>
+        </div>
+        <nav class="nav-barra-lateral">
+            <ul>
+                <li><a href="#"><i class="fas fa-user-edit"></i> Minha Conta</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                <li><a href="#"><i class="fas fa-file-medical"></i> Histórico de Consulta</a></li>
+                <li><a href="#"><i class="fas fa-folder-open"></i> Documentos</a></li>
+            </ul>
+        </nav>
+        <div class="rodape-barra-lateral">
+            <button class="btn-sair"><i class="fas fa-sign-out-alt"></i> Sair da Conta</button>
+        </div>
+    </div>
     <div id="fundo-barra-lateral" class="fundo-barra-lateral"></div>
     
     <div id="modal-hospital" class="modal">
@@ -74,7 +101,35 @@
     </div>
 
     <footer class="rodape-principal">
-        </footer>
+        <div class="container">
+            <div class="conteudo-rodape">
+                <div class="coluna-rodape coluna-sobre">
+                    <h3>Portal Saúde</h3>
+                    <p>Cuidando da sua saúde com informação e tecnologia. Conectando pacientes e profissionais em Salinas, MG.</p>
+                </div>
+                <div class="coluna-rodape coluna-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Hospitais</a></li>
+                        <li><a href="#">Acesso à Informação</a></li>
+                        <li><a href="#">Minha Conta</a></li>
+                    </ul>
+                </div>
+                <div class="coluna-rodape coluna-social">
+                    <h4>Siga-nos</h4>
+                    <div class="icones-sociais">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="base-rodape">
+                <p>© 2025 Portal Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>

@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    let todosHospitais = [];
 
-    // ==========================================================================
-    // 1. DECLARAÇÃO DE TODAS AS FUNÇÕES
-    // ==========================================================================
-
-    /* --- Funções para o Tema (Modo Claro/Escuro) --- */
+    /* Funções para o Tema Modo Claro/Escuro */
     const aplicarTemaSalvo = () => {
         const corpo = document.body;
         const temaSalvo = localStorage.getItem('theme');
@@ -25,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    /* --- Funções para a Barra Lateral do Usuário --- */
+    /* Funções para a Barra Lateral do Usuário */
     const abrirBarraLateral = () => {
         const barraLateral = document.getElementById('barra-lateral-usuario');
         const fundoBarraLateral = document.getElementById('fundo-barra-lateral');
@@ -43,8 +40,34 @@ document.addEventListener('DOMContentLoaded', () => {
             fundoBarraLateral.classList.remove('visivel');
         }
     };
+    
+    const renderizarHospitais = (hospitaisParaRenderizar) => {
+        const listaHospitaisDiv = document.getElementById('lista-hospitais');
+        if (!listaHospitaisDiv) return;
+        
+        listaHospitaisDiv.innerHTML = '';
 
-    /* --- Funções de API (Carregar Dados) --- */
+        if (hospitaisParaRenderizar.length === 0) {
+            listaHospitaisDiv.innerHTML = `<p class="mensagem-nenhum-resultado">Nenhum hospital encontrado.</p>`;
+            return;
+        }
+
+        hospitaisParaRenderizar.forEach(hospital => {
+            const hospitalItem = document.createElement('div');
+            hospitalItem.className = 'item-hospital';
+            let statusClasse = hospital.status === 'livre' ? 'status-livre' : hospital.status === 'moderado' ? 'status-moderado' : 'status-lotado';
+            hospitalItem.innerHTML = `
+                <div class="hospital-status">Disponibilidade: <span class="status-bolinha ${statusClasse}"></span></div>
+                <div class="hospital-botoes">
+                    <a href="#" class="btn-hospital btn-ver-detalhes" data-hospital-id="${hospital.id}">Ver Detalhes</a>
+                    <a href="#" class="btn-hospital">Agendar</a>
+                </div>
+                <h3 class="hospital-nome">${hospital.nome}</h3>`; 
+            listaHospitaisDiv.appendChild(hospitalItem);
+        });
+    };
+
+    /* Funções de API */
     async function carregarMedicos() {
         const listaMedicosDiv = document.getElementById('lista-medicos');
         if (!listaMedicosDiv) return; 
@@ -75,22 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const resposta = await fetch(apiUrl);
             if (!resposta.ok) throw new Error(`Erro: ${resposta.status}`);
-            const hospitais = await resposta.json();
-            listaHospitaisDiv.innerHTML = ''; 
-            hospitais.forEach(hospital => {
-                const hospitalItem = document.createElement('div');
-                hospitalItem.className = 'item-hospital';
-                let statusClasse = hospital.status === 'livre' ? 'status-livre' : hospital.status === 'moderado' ? 'status-moderado' : 'status-lotado';
-                
-                hospitalItem.innerHTML = `
-                    <div class="hospital-status">Disponibilidade: <span class="status-bolinha ${statusClasse}"></span></div>
-                    <div class="hospital-botoes">
-                        <a href="#" class="btn-hospital btn-ver-detalhes" data-hospital-id="${hospital.id}">Ver Detalhes</a>
-                        <a href="#" class="btn-hospital">Agendar</a>
-                    </div>
-                    <h3 class="hospital-nome">${hospital.nome}</h3>`; 
-                listaHospitaisDiv.appendChild(hospitalItem);
-            });
+            
+            todosHospitais = await resposta.json();
+            renderizarHospitais(todosHospitais);
+            
         } catch (erro) { 
             console.error('Falha ao buscar os dados dos hospitais:', erro);
             listaHospitaisDiv.innerHTML = '<p>Não foi possível carregar os dados no momento.</p>';
@@ -160,18 +171,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // ==========================================================================
-    // 2. EXECUÇÃO E EVENT LISTENERS (Anexar funções aos elementos)
-    // ==========================================================================
+    /* Configura a lógica da busca */
+    const configurarBusca = () => {
+        const campoBusca = document.getElementById('campo-busca-hospitais');
+        if (!campoBusca) return;
 
-    /* --- Lógica do Tema --- */
+        campoBusca.addEventListener('input', () => {
+            const termoBusca = campoBusca.value.toLowerCase();
+            const hospitaisFiltrados = todosHospitais.filter(hospital => 
+                hospital.nome.toLowerCase().includes(termoBusca)
+            );
+            renderizarHospitais(hospitaisFiltrados);
+        });
+    };
+
+    /*  Lógica do Tema */
     const alternadorTema = document.getElementById('alternador-tema');
     if (alternadorTema) {
         alternadorTema.addEventListener('click', alternarTema);
     }
     aplicarTemaSalvo();
 
-    /* --- Lógica da Barra Lateral --- */
+    /* Lógica da Barra Lateral e Carrosel */
     const btnPerfilUsuario = document.getElementById('btn-perfil-usuario');
     const btnFecharBarraLateral = document.getElementById('btn-fechar-barra-lateral');
     const fundoBarraLateral = document.getElementById('fundo-barra-lateral');
@@ -180,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnFecharBarraLateral) btnFecharBarraLateral.addEventListener('click', fecharBarraLateral);
     if (fundoBarraLateral) fundoBarraLateral.addEventListener('click', fecharBarraLateral);
 
-    /* --- Lógica do Carrossel (só na index.html) --- */
     if (document.querySelector('.swiper')) {
         new Swiper('.swiper', {
             loop: true,
@@ -190,9 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* --- Chamadas de API (só rodam nas páginas certas) --- */
     carregarMedicos();
     carregarHospitais();
     configurarModalHospital();
+    configurarBusca(); 
 
 });

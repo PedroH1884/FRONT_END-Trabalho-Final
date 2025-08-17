@@ -117,7 +117,6 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
 .base-rodape { border-top: 1px solid #34495e; padding: 20px 0; text-align: center; font-size: 14px; }
 
 /* PÁGINA DE HOSPITAIS */
-
 .pagina-titulo {
     background-color: #f1f5f8;
     padding: 40px 0;
@@ -183,11 +182,51 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
     color: #333;
     font-weight: bold;
 }
-
 .nav-principal a.link-ativo { color: #4CAF50; }
 
-/* MODAL DE DETALHES DO HOSPITAL */
+/* PÁGINA DE HOSPITAIS */
+.pagina-titulo {
+    background-color: #f1f5f8;
+    padding: 40px 0;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+.pagina-titulo h1 { font-size: 36px; margin-bottom: 10px; }
+.container-busca {
+    position: relative;
+    max-width: 700px;
+    margin: 30px auto 0;
+}
+#campo-busca-hospitais {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+#campo-busca-hospitais:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+.icone-busca {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+.mensagem-nenhum-resultado {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #777;
+}
+.secao-lista-hospitais { padding: 60px 0; }
 
+/* MODAL DE DETALHES DO HOSPITAL */
 .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.6); }
 .modal-conteudo { background-color: #fff; margin: 10% auto; padding: 30px; border-radius: 8px; width: 90%; max-width: 600px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 .btn-fechar-modal { color: #aaa; position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; }
@@ -199,12 +238,15 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
 #modal-hospital-corpo h3 { font-size: 18px; margin-bottom: 15px; color: #333; }
 .lista-medicos-modal { list-style: none; padding-left: 0; }
 .lista-medicos-modal li { margin-bottom: 10px; padding-left: 35px; position: relative; }
-.lista-medicos-modal li::before { content: '\f00c'; /* Ícone de check do Font Awesome */ font-family: 'Font Awesome 5 Free'; font-weight: 900; color: #4CAF50; position: absolute; left: 10px; }
+.lista-medicos-modal li::before { content: '\f00c'; font-family: 'Font Awesome 5 Free'; font-weight: 900; color: #4CAF50; position: absolute; left: 10px; }
 .lista-medicos-modal .especialidade { color: #777; font-size: 14px; margin-left: 5px; }
 .status-tag { padding: 5px 12px; border-radius: 15px; font-size: 14px; font-weight: bold; color: white; }
 
 /* MODO ESCURO */
-
+body.modo-escuro .pagina-titulo { background-color: #1a1a1a; border-bottom-color: #333; }
+body.modo-escuro #campo-busca-hospitais {background-color: #2c2c2c; border-color: #444; color: #e0e0e0;}
+body.modo-escuro .icone-busca { color: #666; }
+body.modo-escuro .mensagem-nenhum-resultado { color: #888; }
 body.modo-escuro .modal-conteudo { background-color: #1e1e1e; }
 body.modo-escuro #modal-hospital-nome, body.modo-escuro #modal-hospital-corpo h3 { color: #fff; }
 body.modo-escuro .modal-detalhe-item { color: #bbb; }
