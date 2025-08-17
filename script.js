@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const listaMedicosDiv = document.getElementById('lista-medicos');
         if (!listaMedicosDiv) return; 
 
-        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/medicos?v=${new Date().getTime()}';
+        const apiUrl = `https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/medicos?v=${new Date().getTime()}`;
         try {
             const resposta = await fetch(apiUrl);
             if (!resposta.ok) { throw new Error(`Erro na rede: ${resposta.status}`); }
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const listaHospitaisDiv = document.getElementById('lista-hospitais');
         if (!listaHospitaisDiv) return;
 
-        const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/hospitais?v=${new Date().getTime()}';
+        const apiUrl = `https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/hospitais?v=${new Date().getTime()}`;
         try {
             const resposta = await fetch(apiUrl);
             if (!resposta.ok) throw new Error(`Erro: ${resposta.status}`);
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'block';
 
             try {
-                const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/hospitais/${hospitalId}?v=${new Date().getTime()}';
+                const apiUrl = `https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/hospitais/${hospitalId}?v=${new Date().getTime()}`;
                 const resposta = await fetch(apiUrl);
                 if (!resposta.ok) throw new Error('Hospital não encontrado');
                 const hospital = await resposta.json();
