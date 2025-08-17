@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitais Disponíveis - Portal de Saúde</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="cabecalho-principal">
+        <div class="container">
+            <div class="nav-esquerda">
+                <a href="index.html" class="logo"><img src="imagens/logoOK.png" alt="Logo do Portal Saúde"></a>
+                <nav class="nav-principal">
+                    <ul>
+                        <li><a href="hospitais.html" class="link-ativo">Hospitais Disponíveis</a></li>
+                        <li><a href="#">Acesso à Informação</a></li>
+                        <li><a href="#">Acessibilidade</a></li>
+                        <li><a href="#">Suporte</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-direita">
+                <button id="alternador-tema" class="btn-alternar-tema"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                <button id="btn-perfil-usuario" class="btn-perfil"><i class="fas fa-user"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="pagina-titulo">
+            <div class="container">
+                <h1>Hospitais e Clínicas Conveniadas</h1>
+                <p>Verifique a disponibilidade e agende sua consulta.</p>
+            </div>
+        </section>
+
+        <section class="secao-lista-hospitais">
+            <div class="container">
+                <div id="lista-hospitais" class="lista-hospitais">
+                    <p>Carregando unidades...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+   <div id="barra-lateral-usuario" class="barra-lateral">
+        <div class="barra-lateral-cabecalho">
+            <h3>Área do Paciente</h3>
+            <button id="btn-fechar-barra-lateral" class="btn-fechar-barra-lateral">×</button>
+        </div>
+        <div class="perfil-barra-lateral">
+            <div class="avatar-perfil"><i class="fas fa-user-circle"></i></div>
+            <div class="info-perfil">
+                <h4>Carlos Silva</h4>
+                <p>carlos.silva@email.com</p>
+            </div>
+        </div>
+        <nav class="nav-barra-lateral">
+            <ul>
+                <li><a href="#"><i class="fas fa-user-edit"></i> Minha Conta</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                <li><a href="#"><i class="fas fa-file-medical"></i> Histórico de Consulta</a></li>
+                <li><a href="#"><i class="fas fa-folder-open"></i> Documentos</a></li>
+            </ul>
+        </nav>
+        <div class="rodape-barra-lateral">
+            <button class="btn-sair"><i class="fas fa-sign-out-alt"></i> Sair da Conta</button>
+        </div>
+    </div>
+    <div id="fundo-barra-lateral" class="fundo-barra-lateral"></div>
+
+    <footer class="rodape-principal">
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

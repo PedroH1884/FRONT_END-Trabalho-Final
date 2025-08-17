@@ -10,5 +10,32 @@
   "noticias": [
     { "id": 1, "titulo": "Novas diretrizes para vacinação contra a gripe", "data": "2025-08-14" },
     { "id": 2, "titulo": "A importância da hidratação no tempo seco", "data": "2025-08-12" }
-  ]
+  ],
+  "hospitais": [
+  {
+    "id": 1,
+    "nome": "Hospital Central de Salinas",
+    "status": "livre"
+  },
+  {
+    "id": 2,
+    "nome": "Clínica Santa Lúcia",
+    "status": "moderado"
+  },
+  {
+    "id": 3,
+    "nome": "Pronto Atendimento Unimed",
+    "status": "lotado"
+  },
+  {
+    "id": 4,
+    "nome": "Hospital Pediátrico Criança Feliz",
+    "status": "livre"
+  },
+  {
+    "id": 5,
+    "nome": "Centro Ortopédico da Cidade",
+    "status": "moderado"
+  }
+]
 }
