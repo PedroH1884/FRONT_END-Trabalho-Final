@@ -4,6 +4,7 @@
     -Pedro Henrique Mendes de Castro
     -Cristian Afonso
     -Luiz Henrique Pego
+    -Everton Gabriel dos Santos
     
 # Portal Saúde - Salinas, MG
 
