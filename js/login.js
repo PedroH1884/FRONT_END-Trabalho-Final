@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const apiUrl = 'https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/usuarios';
+    const apiUrl = `https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/usuarios?v=${new Date().getTime()}`;
     const loginForm = document.getElementById('login-form');
 
     if (loginForm) {
