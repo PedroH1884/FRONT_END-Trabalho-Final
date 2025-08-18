@@ -1,0 +1,93 @@
+/* Pagina de Login e Cadastro */
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.container h2 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.container input[type="text"],
+.container input[type="password"],
+.container input[type="email"],
+.container input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.genero {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.genero label {
+    font-weight: normal;
+}
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.container button:hover {
+    background-color: #45a049;
+}
+
+.auth-link {
+    margin-top: 20px;
+    color: #555;
+}
+
+.auth-link a {
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.mensagem-erro, .mensagem-sucesso {
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: none;
+}
+.mensagem-erro { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
+.mensagem-sucesso { color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }

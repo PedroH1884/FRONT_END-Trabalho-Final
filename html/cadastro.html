@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Cadastro - Portal de Saúde</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Realizar Cadastro</h2>
+        <form id="cadastro-form">
+            <div id="cadastro-erro" class="mensagem-erro"></div>
+            <div id="cadastro-sucesso" class="mensagem-sucesso"></div>
+            
+            <input type="text" id="cadastro-nome" placeholder="Nome completo" required>
+            
+            <input type="email" id="cadastro-email" placeholder="E-mail" required>
+            <input type="password" id="cadastro-senha" placeholder="Senha" required>
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p class="auth-link">Já tem uma conta? <a href="login.html">Faça login</a></p>
+    </div>
+    <script src="../js/cadastro.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitais Disponíveis - Portal de Saúde</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho-principal">
+        <div class="container">
+            <div class="nav-esquerda">
+                <a href="../index.html" class="logo"><img src="../imagens/logoOK.png" alt="Logo do Portal Saúde"></a>
+                <nav class="nav-principal">
+                    <ul>
+                        <li><a href="../html/hospitais.html" class="link-ativo">Hospitais Disponíveis</a></li>
+                        <li><a href="acesso.html">Acesso à Informação</a></li>
+                        <li><a href="#">Acessibilidade</a></li>
+                        <li><a href="#">Suporte</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-direita">
+                <button id="alternador-tema" class="btn-alternar-tema"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                <a href="html/login.html" id="btn-abrir-login" class="btn-principal" style="text-decoration: none;">Entrar</a>
+                <button id="btn-perfil-usuario" class="btn-perfil" style="display: none;">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="pagina-titulo">
+            <div class="container">
+                <h1>Hospitais e Clínicas Conveniadas</h1>
+                <p>Verifique a disponibilidade e agende sua consulta.</p>
+                
+                <div class="container-busca">
+                    <i class="fas fa-search icone-busca"></i>
+                    <input type="text" id="campo-busca-hospitais" placeholder="Digite o nome do hospital para filtrar...">
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-lista-hospitais">
+            <div class="container">
+                <div id="lista-hospitais" class="lista-hospitais">
+                    <p>Carregando unidades...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div id="barra-lateral-usuario" class="barra-lateral">
+        <div class="barra-lateral-cabecalho">
+            <h3>Área do Paciente</h3>
+            <button id="btn-fechar-barra-lateral" class="btn-fechar-barra-lateral">×</button>
+        </div>
+        <div class="perfil-barra-lateral">
+            <div class="avatar-perfil"><i class="fas fa-user-circle"></i></div>
+            <div class="info-perfil">
+                <h4>Carlos Silva</h4>
+                <p>carlos.silva@email.com</p>
+            </div>
+        </div>
+        <nav class="nav-barra-lateral">
+            <ul>
+                <li><a href="#"><i class="fas fa-user-edit"></i> Minha Conta</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                <li><a href="#"><i class="fas fa-file-medical"></i> Histórico de Consulta</a></li>
+                <li><a href="#"><i class="fas fa-folder-open"></i> Documentos</a></li>
+            </ul>
+        </nav>
+        <div class="rodape-barra-lateral">
+            <button class="btn-sair"><i class="fas fa-sign-out-alt"></i> Sair da Conta</button>
+        </div>
+    </div>
+    <div id="fundo-barra-lateral" class="fundo-barra-lateral"></div>
+    
+    <div id="modal-hospital" class="modal">
+        <div class="modal-conteudo">
+            <span id="btn-fechar-modal-hospital" class="btn-fechar-modal">&times;</span>
+            <div id="modal-hospital-corpo">
+                <h2 id="modal-hospital-nome">Nome do Hospital</h2>
+                <div class="modal-detalhe-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p id="modal-hospital-localizacao">Carregando localização...</p>
+                </div>
+                <div class="modal-detalhe-item">
+                    <i class="fas fa-traffic-light"></i>
+                    <div id="modal-hospital-disponibilidade">Carregando status...</div>
+                </div>
+                <hr>
+                <h3>Médicos Atendendo no Momento</h3>
+                <ul id="modal-hospital-medicos" class="lista-medicos-modal">
+                    <li>Carregando...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape-principal">
+        <div class="container">
+            <div class="conteudo-rodape">
+                <div class="coluna-rodape coluna-sobre">
+                    <h3>Portal Saúde</h3>
+                    <p>Cuidando da sua saúde com informação e tecnologia. Conectando pacientes e profissionais em Salinas, MG.</p>
+                </div>
+                <div class="coluna-rodape coluna-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="hospitais.html">Hospitais</a></li>
+                        <li><a href="acesso.html">Acesso à Informação</a></li>
+                        <li><a href="#">Minha Conta</a></li>
+                    </ul>
+                </div>
+                <div class="coluna-rodape coluna-social">
+                    <h4>Siga-nos</h4>
+                    <div class="icones-sociais">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="base-rodape">
+                <p>© 2025 Portal Saúde. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -25,6 +25,23 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
     border-radius: 2px;
 }
 
+/* ESTILO PARA O BOTÃO LOGIN */
+.btn-principal {
+    background-color: #4CAF50; /* Cor de fundo verde do tema */
+    color: white;              /* Cor do texto */
+    padding: 8px 18px;         /* Espaçamento interno (vertical e horizontal) */
+    border: none;              /* Sem borda */
+    border-radius: 5px;        /* Cantos levemente arredondados */
+    font-weight: bold;         /* Texto em negrito */
+    font-size: 16px;           /* Tamanho do texto */
+    cursor: pointer;           /* Mostra a "mãozinha" ao passar o mouse */
+    transition: background-color 0.2s ease-in-out; /* Transição suave na cor */
+}
+
+.btn-principal:hover {
+    background-color: #45a049; 
+}
+
 /* CABEÇALHO E NAVEGAÇÃO */
 .cabecalho-principal { background-color: #ffffff; padding: 15px 0; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 999; transition: background-color 0.3s ease; }
 .cabecalho-principal .container { display: flex; align-items: center; justify-content: space-between; }
@@ -184,14 +201,6 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
 }
 .nav-principal a.link-ativo { color: #4CAF50; }
 
-/* PÁGINA DE HOSPITAIS */
-.pagina-titulo {
-    background-color: #f1f5f8;
-    padding: 40px 0;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;
-}
-.pagina-titulo h1 { font-size: 36px; margin-bottom: 10px; }
 .container-busca {
     position: relative;
     max-width: 700px;
@@ -306,7 +315,83 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
     font-weight: bold;
 }
 
+/* HISTÓRICO DE CONSULTAS */
+.historico-consultas {
+    padding: 60px 0;
+    background-color: #f1f5f8;
+    text-align: center;
+}
+.historico-consultas h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+#tabela-consultas {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+#tabela-consultas thead {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+}
+#tabela-consultas th, #tabela-consultas td {
+    padding: 15px 20px;
+}
+#tabela-consultas tbody tr {
+    background-color: #fff;
+    transition: background-color 0.3s;
+}
+#tabela-consultas tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+#tabela-consultas tbody tr:hover {
+    background-color: #e0f7e9;
+}
+#tabela-consultas td, #tabela-consultas th {
+    border-bottom: 1px solid #ddd;
+}
+@media (max-width: 768px) {
+    #tabela-consultas thead {
+        display: none;
+    }
+    #tabela-consultas, #tabela-consultas tbody, #tabela-consultas tr, #tabela-consultas td {
+        display: block;
+        width: 100%;
+    }
+    #tabela-consultas tr {
+        margin-bottom: 20px;
+    }
+    #tabela-consultas td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    #tabela-consultas td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 20px;
+        width: calc(50% - 40px);
+        text-align: left;
+        font-weight: bold;
+        color: #4CAF50;
+    }
+}
+
 /* MODO ESCURO */
+body.modo-escuro #tabela-consultas td::before { color: #58b95b;}
+body.modo-escuro .historico-consultas {background-color: #1a1a1a;}
+body.modo-escuro .historico-consultas h2 {color: #fff;}
+body.modo-escuro #tabela-consultas thead {background-color: #58b95b;}
+body.modo-escuro #tabela-consultas tbody tr {background-color: #2c2c2c;}
+body.modo-escuro #tabela-consultas tbody tr:nth-child(even) {background-color: #1e1e1e;}
+body.modo-escuro #tabela-consultas tbody tr:hover {background-color: #3a3a3a;}
+body.modo-escuro #tabela-consultas td, 
+body.modo-escuro #tabela-consultas th {border-bottom: 1px solid #444;}
 body.modo-escuro .card-medico { background-color: #2c2c2c; border-color: #444; }
 body.modo-escuro .card-medico-foto { border-color: #333; }
 body.modo-escuro .card-medico h3 { color: #fff; }

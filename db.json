@@ -45,20 +45,8 @@
       "nome": "Dr. Junior Santos",
       "foto_url": "imagens/medico6.jpg",
       "especialidades": ["Clínica Geral", "Medicina do Trabalho"],
-      "hospital_nome": "Pronto Atendimento Unimed",
+      "hospital_nome": "Hospital Municipal Dr. Oswaldo Prediliano Santanna",
       "horarios": "Segunda a Sexta, 14:00 - 20:00"
-    }
-  ],
-  "noticias": [
-    {
-      "id": 1,
-      "titulo": "Novas diretrizes para vacinação contra a gripe",
-      "data": "2025-08-14"
-    },
-    {
-      "id": 2,
-      "titulo": "A importância da hidratação no tempo seco",
-      "data": "2025-08-12"
     }
   ],
   "hospitais": [
@@ -152,8 +140,26 @@
   "usuarios": [
     {
       "id": 1,
-      "nome": "Carlos Silva",
-      "email": "carlos@email.com",
+      "nome": "Pedro Henrique",
+      "email": "pedro@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": 2,
+      "nome": "Everton Gabriel",
+      "email": "everton@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": 3,
+      "nome": "Cristian Afonso",
+      "email": "cristian@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": 1,
+      "nome": "Luiz Henrique",
+      "email": "luiz@gmail.com",
       "senha": "123"
     }
   ]

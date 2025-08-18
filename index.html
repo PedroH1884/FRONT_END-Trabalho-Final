@@ -6,7 +6,7 @@
     <title>Portal de Saúde - Início</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -16,8 +16,8 @@
                 <a href="index.html" class="logo"><img src="imagens/logoOK.png" alt="Logo do Portal Saúde"></a>
                 <nav class="nav-principal">
                     <ul>
-                        <li><a href="hospitais.html">Hospitais Disponíveis</a></li>
-                        <li><a href="#">Acesso à Informação</a></li>
+                        <li><a href="html/hospitais.html">Hospitais Disponíveis</a></li>
+                        <li><a href="html/acesso.html">Acesso à Informação</a></li>
                         <li><a href="#">Acessibilidade</a></li>
                         <li><a href="#">Suporte</a></li>
                     </ul>
@@ -25,7 +25,10 @@
             </div>
             <div class="nav-direita">
                 <button id="alternador-tema" class="btn-alternar-tema"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
-                <button id="btn-perfil-usuario" class="btn-perfil"><i class="fas fa-user"></i></button>
+                <a href="html/login.html" id="btn-abrir-login" class="btn-principal" style="text-decoration: none;">Entrar</a>
+                <button id="btn-perfil-usuario" class="btn-perfil" style="display: none;">
+                    <i class="fas fa-user"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -51,6 +54,7 @@
                     <p>Encontre os principais pontos de atendimento na cidade.</p>
                 </div>
                 <div class="container-mapa">
+                    <iframe src="https://www.google.com/maps/d/u/2/embed?mid=1uxVKkbTnSAxnR2JQmmTvmX9OwQfkFb8&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
                     </div>
             </div>
         </section>
@@ -83,7 +87,7 @@
 
         <section class="secao-chamada-acao">
             <div class="container">
-                <a href="#" class="btn-chamada-acao">Agende sua Consulta Agora</a>
+                <a href="html/hospitais.html" class="btn-chamada-acao">Agende sua Consulta Agora</a>
             </div>
         </section>
 
@@ -149,8 +153,8 @@
                     <h4>Links Rápidos</h4>
                     <ul>
                         <li><a href="index.html">Início</a></li>
-                        <li><a href="hospitais.html">Hospitais</a></li>
-                        <li><a href="#">Acesso à Informação</a></li>
+                        <li><a href="html/hospitais.html">Hospitais</a></li>
+                        <li><a href="html/acesso.html">Acesso à Informação</a></li>
                         <li><a href="#">Minha Conta</a></li>
                     </ul>
                 </div>
@@ -170,6 +174,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

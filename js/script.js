@@ -31,6 +31,37 @@ document.addEventListener('DOMContentLoaded', () => {
             fundoBarraLateral.classList.add('visivel');
         }
     };
+    /* Interface de Login e Cadastro */ 
+    const atualizarInterfaceUsuario = () => {
+        const btnAbrirLogin = document.getElementById('btn-abrir-login');
+        const btnPerfilUsuario = document.getElementById('btn-perfil-usuario');
+        const barraLateral = document.getElementById('barra-lateral-usuario');
+        
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+        if (usuarioLogado) {
+            if(btnAbrirLogin) btnAbrirLogin.style.display = 'none';
+            if(btnPerfilUsuario) btnPerfilUsuario.style.display = 'block';
+            
+            if(barraLateral) {
+                barraLateral.querySelector('.info-perfil h4').textContent = usuarioLogado.nome;
+                barraLateral.querySelector('.info-perfil p').textContent = usuarioLogado.email;
+            }
+        } else {
+            if(btnAbrirLogin) btnAbrirLogin.style.display = 'block';
+            if(btnPerfilUsuario) btnPerfilUsuario.style.display = 'none';
+        }
+    };
+
+    const configurarLogout = () => {
+        const btnSair = document.querySelector('.btn-sair');
+        if(btnSair) {
+            btnSair.addEventListener('click', () => {
+                localStorage.removeItem('usuarioLogado');
+                window.location.href = 'index.html';
+            });
+        }
+    };
 
     const fecharBarraLateral = () => {
         const barraLateral = document.getElementById('barra-lateral-usuario');
@@ -67,6 +98,30 @@ document.addEventListener('DOMContentLoaded', () => {
             listaHospitaisDiv.appendChild(hospitalItem);
         });
     };
+    /* Função Carregar Consultas */
+    async function carregarConsultas() {
+    try {
+        const resposta = await fetch("https://my-json-server.typicode.com/CristianAfonsoD/TrabalhoFinal/consultas");
+        const consultas = await resposta.json();
+
+        const tbody = document.querySelector("#tabela-consultas tbody");
+        tbody.innerHTML = ""; 
+
+        consultas.forEach(c => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${c.id}</td>
+                <td>${c.name}</td>
+                <td>${c.time}</td>
+                <td>${c.dataNascimento}</td>
+                <td>${c.date}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    } catch (erro) {
+        console.error("Erro ao carregar consultas:", erro);
+    }
+}
 
     /* Funções de Carregar Dados */
     async function carregarMedicos() {
@@ -266,4 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     configurarModalMedico();
     configurarModalHospital();
     configurarBusca(); 
+    carregarConsultas();
+    atualizarInterfaceUsuario();
+    configurarLogout();
 });

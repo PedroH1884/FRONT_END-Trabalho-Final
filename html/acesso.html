@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospitais Disponíveis - Portal de Saúde</title>
+    <title>Acesso à Informação</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styleAcesso.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
 </head>
 <body>
 
     <header class="cabecalho-principal">
         <div class="container">
             <div class="nav-esquerda">
-                <a href="index.html" class="logo"><img src="imagens/logoOK.png" alt="Logo do Portal Saúde"></a>
+                <a href="index.html" class="logo"><img src="/..imagens/logoOK.png" alt="Logo do Portal Saúde"></a>
                 <nav class="nav-principal">
                     <ul>
-                        <li><a href="hospitais.html" class="link-ativo">Hospitais Disponíveis</a></li>
+                        <li><a href="hospitais.html">Hospitais Disponíveis</a></li>
                         <li><a href="#">Acesso à Informação</a></li>
                         <li><a href="#">Acessibilidade</a></li>
                         <li><a href="#">Suporte</a></li>
@@ -25,30 +27,30 @@
             </div>
             <div class="nav-direita">
                 <button id="alternador-tema" class="btn-alternar-tema"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
-                <button id="btn-perfil-usuario" class="btn-perfil"><i class="fas fa-user"></i></button>
+                <a href="html/login.html" id="btn-abrir-login" class="btn-principal" style="text-decoration: none;">Entrar</a>
+                <button id="btn-perfil-usuario" class="btn-perfil" style="display: none;">
+                    <i class="fas fa-user"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="pagina-titulo">
-            <div class="container">
-                <h1>Hospitais e Clínicas Conveniadas</h1>
-                <p>Verifique a disponibilidade e agende sua consulta.</p>
-                
-                <div class="container-busca">
-                    <i class="fas fa-search icone-busca"></i>
-                    <input type="text" id="campo-busca-hospitais" placeholder="Digite o nome do hospital para filtrar...">
-                </div>
-            </div>
-        </section>
-
-        <section class="secao-lista-hospitais">
-            <div class="container">
-                <div id="lista-hospitais" class="lista-hospitais">
-                    <p>Carregando unidades...</p>
-                </div>
-            </div>
+        <section class="historico-consultas">
+            <h2>Histórico de Consultas</h2>
+            <table id="tabela-consultas">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Horário</th>
+                        <th>Data de Nascimento</th>
+                        <th>Data da Consulta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </section>
     </main>
     
@@ -77,28 +79,6 @@
         </div>
     </div>
     <div id="fundo-barra-lateral" class="fundo-barra-lateral"></div>
-    
-    <div id="modal-hospital" class="modal">
-        <div class="modal-conteudo">
-            <span id="btn-fechar-modal-hospital" class="btn-fechar-modal">&times;</span>
-            <div id="modal-hospital-corpo">
-                <h2 id="modal-hospital-nome">Nome do Hospital</h2>
-                <div class="modal-detalhe-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p id="modal-hospital-localizacao">Carregando localização...</p>
-                </div>
-                <div class="modal-detalhe-item">
-                    <i class="fas fa-traffic-light"></i>
-                    <div id="modal-hospital-disponibilidade">Carregando status...</div>
-                </div>
-                <hr>
-                <h3>Médicos Atendendo no Momento</h3>
-                <ul id="modal-hospital-medicos" class="lista-medicos-modal">
-                    <li>Carregando...</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <footer class="rodape-principal">
         <div class="container">
@@ -131,7 +111,5 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
