@@ -1,11 +1,25 @@
-/* Pagina de Login e Cadastro */
 body {
     background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+.auth-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.auth-logo {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.auth-logo img {
+    height: 90px;
+    width: auto;
 }
 
 .container {
@@ -42,16 +56,6 @@ body {
     margin-bottom: 5px;
     font-weight: bold;
     color: #555;
-}
-
-.genero {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
-}
-
-.genero label {
-    font-weight: normal;
 }
 
 .container button {

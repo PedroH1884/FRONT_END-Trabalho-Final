@@ -7,21 +7,30 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Realizar Cadastro</h2>
-        <form id="cadastro-form">
-            <div id="cadastro-erro" class="mensagem-erro"></div>
-            <div id="cadastro-sucesso" class="mensagem-sucesso"></div>
-            
-            <input type="text" id="cadastro-nome" placeholder="Nome completo" required>
-            
-            <input type="email" id="cadastro-email" placeholder="E-mail" required>
-            <input type="password" id="cadastro-senha" placeholder="Senha" required>
-            
-            <button type="submit">Cadastrar</button>
-        </form>
-        <p class="auth-link">Já tem uma conta? <a href="login.html">Faça login</a></p>
+    <div class="auth-container">
+        <a href="../index.html" class="auth-logo">
+            <img src="../imagens/logoOK.png" alt="Logo Portal Saúde">
+        </a>
+
+        <div class="container">
+            <h2>Realizar Cadastro</h2>
+            <form id="cadastro-form">
+                <div id="cadastro-erro" class="mensagem-erro"></div>
+                <div id="cadastro-sucesso" class="mensagem-sucesso"></div>
+                
+                <input type="text" id="cadastro-nome" placeholder="Nome completo" required>
+                <input type="email" id="cadastro-email" placeholder="E-mail" required>
+                
+                <label for="cadastro-nascimento">Data de Nascimento:</label>
+                <input type="date" id="cadastro-nascimento" required>
+                
+                <input type="password" id="cadastro-senha" placeholder="Senha" required>
+                
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p class="auth-link">Já tem uma conta? <a href="login.html">Faça login</a></p>
+        </div>
     </div>
-    <script src="../js/cadastro.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>

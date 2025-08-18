@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const apiUrl = `https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/usuarios?v=${new Date().getTime()}`;
+
+
+    // LÓGICA PARA A PÁGINA DE LOGIN
     const loginForm = document.getElementById('login-form');
 
     if (loginForm) {
@@ -21,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (usuarioEncontrado) {
                     localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
-                    window.location.href = '../index.html';
+                    window.location.href = '../index.html'; // Redireciona para a página principal
                 } else {
                     erroDiv.textContent = 'Email ou senha incorretos.';
                     erroDiv.style.display = 'block';
@@ -33,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // LÓGICA PARA A PÁGINA DE CADASTRO
     const cadastroForm = document.getElementById('cadastro-form');
 
     if (cadastroForm) {
@@ -45,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const nome = document.getElementById('cadastro-nome').value;
             const email = document.getElementById('cadastro-email').value;
             const senha = document.getElementById('cadastro-senha').value;
+            const dataNascimento = document.getElementById('cadastro-nascimento').value;
 
             erroDiv.style.display = 'none';
             sucessoDiv.style.display = 'none';
@@ -52,7 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const resposta = await fetch(apiUrl, {
                     method: 'POST',
-                    body: JSON.stringify({ nome, email, senha }),
+                    body: JSON.stringify({ 
+                        nome, 
+                        email, 
+                        senha, 
+                        data_nascimento: dataNascimento 
+                    }),
                     headers: { 'Content-type': 'application/json; charset=UTF-8' },
                 });
 

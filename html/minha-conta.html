@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - Portal de Saúde</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho-principal">
+        <div class="container">
+            <div class="nav-esquerda">
+                <a href="../index.html" class="logo"><img src="../imagens/logoOK.png" alt="Logo do Portal Saúde"></a>
+                <nav class="nav-principal">
+                    <ul>
+                        <li><a href="hospitais.html">Hospitais Disponíveis</a></li>
+                        <li><a href="#">Acesso à Informação</a></li>
+                        <li><a href="#">Acessibilidade</a></li>
+                        <li><a href="suporte.html">Suporte</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-direita">
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="pagina-titulo">
+            <div class="container">
+                <h1>Minha Conta</h1>
+                <p>Gerencie suas informações pessoais e de acesso.</p>
+            </div>
+        </section>
+
+        <section class="secao-minha-conta">
+            <div class="container">
+                <div class="card-conta">
+                    <h3>Seus Dados</h3>
+                    <div class="info-item">
+                        <label>Nome Completo</label>
+                        <p id="info-nome">Carregando...</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <p id="info-email">Carregando...</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Data de Nascimento</label>
+                        <p id="info-nascimento">Não informado</p>
+                    </div>
+                </div>
+
+                <div class="card-conta">
+                    <h3>Alterar Nome de Usuário</h3>
+                    <form id="form-alterar-nome">
+                        <div class="form-grupo">
+                            <label for="novo-nome">Novo Nome Completo</label>
+                            <input type="text" id="novo-nome" required>
+                        </div>
+                        <button type="submit" class="btn-principal">Salvar Nome</button>
+                    </form>
+                </div>
+
+                <div class="card-conta">
+                    <h3>Alterar Senha</h3>
+                    <form id="form-alterar-senha">
+                        <div class="form-grupo">
+                            <label for="senha-atual">Senha Atual</label>
+                            <input type="password" id="senha-atual" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="nova-senha">Nova Senha</label>
+                            <input type="password" id="nova-senha" required>
+                        </div>
+                        <button type="submit" class="btn-principal">Alterar Senha</button>
+                    </form>
+                    <div id="feedback-senha" class="feedback-mensagem"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="rodape-principal">
+        </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/minha-conta.js"></script>
+</body>
+</html>
