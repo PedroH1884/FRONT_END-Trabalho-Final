@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Saúde</title>
+    <title>Portal de Saúde - Início</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
@@ -51,7 +51,6 @@
                     <p>Encontre os principais pontos de atendimento na cidade.</p>
                 </div>
                 <div class="container-mapa">
-                    <iframe src="https://www.google.com/maps/d/u/2/embed?mid=1uxVKkbTnSAxnR2JQmmTvmX9OwQfkFb8&ehbc=2E312F" width="640" height="480"></iframe>
                     </div>
             </div>
         </section>
@@ -65,7 +64,7 @@
                 <div class="grid-galeria">
                     <div class="item-galeria"><img src="imagens/galeria1.jpeg" alt="Descrição da imagem 1"><h3>Recepção Aconchegante</h3></div>
                     <div class="item-galeria"><img src="imagens/galeria2.jpeg" alt="Descrição da imagem 2"><h3>Equipamentos Modernos</h3></div>
-                    <div class="item-galeria"><img src="imagens/galeria3.png" alt="Imagem Consultorio"><h3>Consultórios Amplos</h3></div>
+                    <div class="item-galeria"><img src="imagens/galeria3.png" alt="Descrição da imagem 3"><h3>Consultórios Amplos</h3></div>
                 </div>
             </div>
         </section>
@@ -84,7 +83,7 @@
 
         <section class="secao-chamada-acao">
             <div class="container">
-                <a href="hospitais.html" class="btn-chamada-acao">Agende sua Consulta Agora</a>
+                <a href="#" class="btn-chamada-acao">Agende sua Consulta Agora</a>
             </div>
         </section>
 
@@ -116,6 +115,29 @@
     </div>
     <div id="fundo-barra-lateral" class="fundo-barra-lateral"></div>
 
+    <div id="modal-medico" class="modal">
+        <div class="modal-conteudo">
+            <span id="btn-fechar-modal-medico" class="btn-fechar-modal">&times;</span>
+            <div id="modal-medico-corpo">
+                <img id="modal-medico-foto" src="" alt="Foto do Médico" class="modal-medico-foto">
+                <h2 id="modal-medico-nome">Nome do Médico</h2>
+                <div class="modal-detalhe-item">
+                    <i class="fas fa-hospital"></i>
+                    <p id="modal-medico-hospital">Carregando hospital...</p>
+                </div>
+                <div class="modal-detalhe-item">
+                    <i class="fas fa-clock"></i>
+                    <p id="modal-medico-horarios">Carregando horários...</p>
+                </div>
+                <hr>
+                <h3>Especialidades</h3>
+                <ul id="modal-medico-especialidades" class="especialidades-lista-modal">
+                    <li>Carregando...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <footer class="rodape-principal">
         <div class="container">
             <div class="conteudo-rodape">
@@ -126,8 +148,8 @@
                 <div class="coluna-rodape coluna-links">
                     <h4>Links Rápidos</h4>
                     <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Hospitais</a></li>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="hospitais.html">Hospitais</a></li>
                         <li><a href="#">Acesso à Informação</a></li>
                         <li><a href="#">Minha Conta</a></li>
                     </ul>
@@ -142,7 +164,7 @@
                 </div>
             </div>
             <div class="base-rodape">
-                <p>© 2025 Portal Saúde. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Portal Saúde. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>

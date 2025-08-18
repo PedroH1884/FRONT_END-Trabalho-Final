@@ -1,22 +1,72 @@
 {
   "medicos": [
-    { "id": 1, "nome": "Dr. João Carlos Pereira", "especialidade": "Cardiologia", "crm": "12345-MG" },
-    { "id": 2, "nome": "Dra. Ana Maria Souza", "especialidade": "Pediatria", "crm": "54321-MG" },
-    { "id": 3, "nome": "Dr. Pedro Lins Azevedo", "especialidade": "Ortopedia", "crm": "67890-MG" },
-    { "id": 4, "nome": "Dra. Carolina Mendes", "especialidade": "Dermatologia", "crm": "11223-MG" },
-    { "id": 5, "nome": "Dr. Ricardo Bastos", "especialidade": "Clínica Geral", "crm": "44556-MG" },
-    { "id": 6, "nome": "Dr. Junior Santos", "especialidade": "Clínica Geral", "crm": "44586-MG" }
+    {
+      "id": 1,
+      "nome": "Dr. João Carlos Pereira",
+      "foto_url": "imagens/medico1.jpg",
+      "especialidades": ["Cardiologia", "Clínica Geral"],
+      "hospital_nome": "Hospital Central de Salinas",
+      "horarios": "Segunda a Sexta, 08:00 - 17:00"
+    },
+    {
+      "id": 2,
+      "nome": "Dra. Ana Maria Souza",
+      "foto_url": "imagens/medico2.jpg",
+      "especialidades": ["Pediatria"],
+      "hospital_nome": "Clínica Santa Lúcia",
+      "horarios": "Segunda, Quarta e Sexta, 09:00 - 18:00"
+    },
+    {
+      "id": 3,
+      "nome": "Dr. Pedro Lins Azevedo",
+      "foto_url": "imagens/medico3.jpg",
+      "especialidades": ["Ortopedia", "Traumatologia"],
+      "hospital_nome": "Centro Ortopédico da Cidade",
+      "horarios": "Terça e Quinta, 08:00 - 12:00"
+    },
+    {
+      "id": 4,
+      "nome": "Dra. Carolina Mendes",
+      "foto_url": "imagens/medico4.jpg",
+      "especialidades": ["Dermatologia"],
+      "hospital_nome": "Clínica Santa Lúcia",
+      "horarios": "Segunda a Quinta, 13:00 - 19:00"
+    },
+    {
+      "id": 5,
+      "nome": "Dr. Ricardo Bastos",
+      "foto_url": "imagens/medico5.jpg",
+      "especialidades": ["Clínica Geral"],
+      "hospital_nome": "Hospital Central de Salinas",
+      "horarios": "Plantões de 24h (consultar escala)"
+    },
+    {
+      "id": 6,
+      "nome": "Dr. Junior Santos",
+      "foto_url": "imagens/medico6.jpg",
+      "especialidades": ["Clínica Geral", "Medicina do Trabalho"],
+      "hospital_nome": "Pronto Atendimento Unimed",
+      "horarios": "Segunda a Sexta, 14:00 - 20:00"
+    }
   ],
   "noticias": [
-    { "id": 1, "titulo": "Novas diretrizes para vacinação contra a gripe", "data": "2025-08-14" },
-    { "id": 2, "titulo": "A importância da hidratação no tempo seco", "data": "2025-08-12" }
+    {
+      "id": 1,
+      "titulo": "Novas diretrizes para vacinação contra a gripe",
+      "data": "2025-08-14"
+    },
+    {
+      "id": 2,
+      "titulo": "A importância da hidratação no tempo seco",
+      "data": "2025-08-12"
+    }
   ],
   "hospitais": [
-   {
+    {
       "id": 1,
-      "nome": "Hospital Central de Salinas",
+      "nome": "Hospital Municipal Dr. Oswaldo Prediliano Santanna",
       "status": "livre",
-      "localizacao": "Praça Dr. João, 123, Centro, Salinas - MG",
+      "localizacao": "Av. Antônio Carlos, 1009 - Sao Geraldo, Salinas",
       "medicos_atuais": [
         { "nome": "Dr. João Carlos Pereira", "especialidade": "Cardiologia" },
         { "nome": "Dra. Helena Costa", "especialidade": "Clínica Geral" },
@@ -25,9 +75,9 @@
     },
     {
       "id": 2,
-      "nome": "Clínica Santa Lúcia",
-      "status": "moderado",
-      "localizacao": "Av. Brasil, 456, Bairro Novo, Salinas - MG",
+      "nome": "Hospital São Lucas de Salinas",
+      "status": "livre",
+      "localizacao": "R. Avelino de Almeida, 340 - Centro, Salinas - MG",
       "medicos_atuais": [
         { "nome": "Dra. Ana Maria Souza", "especialidade": "Pediatria" },
         { "nome": "Dr. Ricardo Bastos", "especialidade": "Clínica Geral" }
@@ -35,13 +85,76 @@
     },
     {
       "id": 3,
-      "nome": "Pronto Atendimento Unimed",
+      "nome": "PS - Hospital Policlinica Salinense",
       "status": "lotado",
-      "localizacao": "Rua das Palmeiras, 789, Bairro Central, Salinas - MG",
+      "localizacao": "R. Cônego Benício, 104 - Centro, Salinas - MG",
       "medicos_atuais": [
         { "nome": "Dra. Carolina Mendes", "especialidade": "Dermatologia" },
         { "nome": "Dr. Pedro Lins Azevedo", "especialidade": "Ortopedia" }
       ]
+    },
+    {
+      "id": 4,
+      "nome": "UPA - Unidade de Pronto Atendimento",
+      "status": "moderado",
+      "localizacao": "R. Juvenato Costa Filho, 185-211 - Salinas, MG",
+      "medicos_atuais": [
+        { "nome": "Dra. Ana Maria Souza", "especialidade": "Pediatria" },
+        { "nome": "Dra. Helena Costa", "especialidade": "Clínica Geral" },
+        { "nome": "Dr. Marcos Rocha", "especialidade": "Ortopedia" }
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "Dra. Priscilla Tolentino, Nefrologista",
+      "status": "moderado",
+      "localizacao": "Hospital Policlínica Salinense - R. Cônego Benício, 104 - Centro, Salinas - MG",
+      "medicos_atuais": [
+        { "nome": "Dr. João Carlos Pereira", "especialidade": "Cardiologia" },
+        { "nome": "Dr. Junior Santos", "especialidade": "Clínica Geral" },
+        { "nome": "Dr. Marcos Rocha", "especialidade": "Ortopedia" }
+      ]
+    },
+    {
+      "id": 6,
+      "nome": "CESB - Centro de Especialidades Santa Bárbara",
+      "status": "livre",
+      "localizacao": "R. Cônego Bêncio, 24 - Salinas, MG",
+      "medicos_atuais": [
+        { "nome": "Dr. João Carlos Pereira", "especialidade": "Cardiologia" },
+        { "nome": "Dra. Carolina Mendes", "especialidade": "Dermatologia" },
+        { "nome": "Dr. Ricardo Bastos", "especialidade": "Clínica Geral" }
+      ]
+    },
+    {
+      "id": 7,
+      "nome": "Hemodiálise Salinas (Hospital Dilson Godinho)",
+      "status": "lotado",
+      "localizacao": "Av. Antônio Carlos, 1009 - Salinas, MG",
+      "medicos_atuais": [
+        { "nome": "Dr. Pedro Lins Azevedo", "especialidade": "Ortopedia" },
+        { "nome": "Dra. Helena Costa", "especialidade": "Clínica Geral" },
+        { "nome": "Dr. Marcos Rocha", "especialidade": "Ortopedia" }
+      ]
+    },
+    {
+      "id": 8,
+      "nome": "PSF-Floresta",
+      "status": "livre",
+      "localizacao": "R. Aristídes Brito - Salinas, MG",
+      "medicos_atuais": [
+        { "nome": "Dr. João Carlos Pereira", "especialidade": "Cardiologia" },
+        { "nome": "Dr. Ricardo Bastos", "especialidade": "Clínica Geral" },
+        { "nome": "Dr. Marcos Rocha", "especialidade": "Ortopedia" }
+      ]
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Carlos Silva",
+      "email": "carlos@email.com",
+      "senha": "123"
     }
   ]
 }

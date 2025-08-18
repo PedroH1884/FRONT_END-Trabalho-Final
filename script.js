@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let todosHospitais = [];
 
-    /* Funções para o Tema Modo Claro/Escuro */
+    /* Funções para o Tema (Modo Claro/Escuro) */
     const aplicarTemaSalvo = () => {
         const corpo = document.body;
         const temaSalvo = localStorage.getItem('theme');
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
+    /* Função para renderizar a lista de hospitais na tela */
     const renderizarHospitais = (hospitaisParaRenderizar) => {
         const listaHospitaisDiv = document.getElementById('lista-hospitais');
         if (!listaHospitaisDiv) return;
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    /* Funções de API */
+    /* Funções de Carregar Dados */
     async function carregarMedicos() {
         const listaMedicosDiv = document.getElementById('lista-medicos');
         if (!listaMedicosDiv) return; 
@@ -81,12 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
             medicos.forEach(medico => {
                 const medicoCard = document.createElement('div');
                 medicoCard.className = 'card-medico';
-                medicoCard.innerHTML = `<h3>${medico.nome}</h3><p>${medico.especialidade}</p>`; 
+                medicoCard.innerHTML = `
+                    <img src="${medico.foto_url}" alt="Foto de ${medico.nome}" class="card-medico-foto">
+                    <h3>${medico.nome}</h3>
+                    <p class="especialidade-principal">${medico.especialidades[0]}</p>
+                    <button class="btn-detalhes-medico" data-medico-id="${medico.id}">Detalhes</button>
+                `; 
                 listaMedicosDiv.appendChild(medicoCard);
             });
-        } catch (erro) {
+        } catch (erro) { 
             console.error('Falha ao buscar os dados dos médicos:', erro);
-            listaMedicosDiv.innerHTML = '<p>Não foi possível carregar os dados no momento.</p>';
+            listaMedicosDiv.innerHTML = '<p>Não foi possível carregar os dados dos médicos no momento.</p>';
         }
     }
 
@@ -98,15 +104,64 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const resposta = await fetch(apiUrl);
             if (!resposta.ok) throw new Error(`Erro: ${resposta.status}`);
-            
             todosHospitais = await resposta.json();
             renderizarHospitais(todosHospitais);
-            
         } catch (erro) { 
             console.error('Falha ao buscar os dados dos hospitais:', erro);
             listaHospitaisDiv.innerHTML = '<p>Não foi possível carregar os dados no momento.</p>';
         }
     }
+    
+    /* Funções para os Modais */
+    const configurarModalMedico = () => {
+        const modal = document.getElementById('modal-medico');
+        if (!modal) return;
+
+        const listaMedicosDiv = document.getElementById('lista-medicos');
+        const btnFechar = document.getElementById('btn-fechar-modal-medico');
+        const fotoEl = document.getElementById('modal-medico-foto');
+        const nomeEl = document.getElementById('modal-medico-nome');
+        const hospitalEl = document.getElementById('modal-medico-hospital');
+        const horariosEl = document.getElementById('modal-medico-horarios');
+        const especialidadesEl = document.getElementById('modal-medico-especialidades');
+
+        const abrirModalComDados = async (medicoId) => {
+            nomeEl.textContent = 'Carregando...';
+            modal.style.display = 'block';
+
+            try {
+                const apiUrl = `https://my-json-server.typicode.com/PedroH1884/FRONT_END-trabalho-final/medicos/${medicoId}?v=${new Date().getTime()}`;
+                const resposta = await fetch(apiUrl);
+                if (!resposta.ok) throw new Error('Médico não encontrado');
+                const medico = await resposta.json();
+
+                fotoEl.src = medico.foto_url;
+                nomeEl.textContent = medico.nome;
+                hospitalEl.textContent = medico.hospital_nome;
+                horariosEl.textContent = medico.horarios;
+
+                const especialidadesHtml = medico.especialidades.map(esp => `<li>${esp}</li>`).join('');
+                especialidadesEl.innerHTML = especialidadesHtml;
+
+            } catch(erro) {
+                nomeEl.textContent = 'Erro ao carregar detalhes';
+                console.error(erro);
+            }
+        };
+
+        listaMedicosDiv.addEventListener('click', (event) => {
+            if (event.target.matches('.btn-detalhes-medico')) {
+                const id = event.target.getAttribute('data-medico-id');
+                abrirModalComDados(id);
+            }
+        });
+
+        const fecharModal = () => modal.style.display = 'none';
+        btnFechar.addEventListener('click', fecharModal);
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) fecharModal();
+        });
+    };
     
     const configurarModalHospital = () => {
         const modal = document.getElementById('modal-hospital');
@@ -121,9 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const abrirModalComDados = async (hospitalId) => {
             nomeHospital.textContent = 'Carregando...';
-            localizacaoHospital.textContent = '';
-            disponibilidadeHospital.innerHTML = '';
-            medicosLista.innerHTML = '';
             modal.style.display = 'block';
 
             try {
@@ -165,13 +217,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const fecharModal = () => modal.style.display = 'none';
         btnFechar.addEventListener('click', fecharModal);
         window.addEventListener('click', (event) => {
-            if (event.target == modal) {
-                fecharModal();
-            }
+            if (event.target == modal) fecharModal();
         });
     };
 
-    /* Configura a lógica da busca */
+    /* Função para configurar a lógica da busca */
     const configurarBusca = () => {
         const campoBusca = document.getElementById('campo-busca-hospitais');
         if (!campoBusca) return;
@@ -185,14 +235,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    /*  Lógica do Tema */
+    /* Lógica do Tema */
     const alternadorTema = document.getElementById('alternador-tema');
     if (alternadorTema) {
         alternadorTema.addEventListener('click', alternarTema);
     }
     aplicarTemaSalvo();
 
-    /* Lógica da Barra Lateral e Carrosel */
+    /* Lógica da Barra Lateral */
     const btnPerfilUsuario = document.getElementById('btn-perfil-usuario');
     const btnFecharBarraLateral = document.getElementById('btn-fechar-barra-lateral');
     const fundoBarraLateral = document.getElementById('fundo-barra-lateral');
@@ -201,6 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnFecharBarraLateral) btnFecharBarraLateral.addEventListener('click', fecharBarraLateral);
     if (fundoBarraLateral) fundoBarraLateral.addEventListener('click', fecharBarraLateral);
 
+    /* Lógica do Carrossel */
     if (document.querySelector('.swiper')) {
         new Swiper('.swiper', {
             loop: true,
@@ -212,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carregarMedicos();
     carregarHospitais();
+    configurarModalMedico();
     configurarModalHospital();
     configurarBusca(); 
-
 });
