@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Conta - Portal de Saúde</title>
+    <title>Minha Agenda - Portal de Saúde</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -32,59 +32,39 @@
     <main>
         <section class="pagina-titulo">
             <div class="container">
-                <h1>Minha Conta</h1>
-                <p>Gerencie suas informações pessoais e de acesso.</p>
+                <h1>Minha Agenda</h1>
+                <p>Visualize suas consultas marcadas.</p>
             </div>
         </section>
 
-        <section class="secao-minha-conta">
-            <div class="container">
-                <div class="card-conta">
-                    <h3>Seus Dados</h3>
-                    <div class="info-item">
-                        <label>Nome Completo</label>
-                        <p id="info-nome">Carregando...</p>
-                    </div>
-                    <div class="info-item">
-                        <label>Email</label>
-                        <p id="info-email">Carregando...</p>
-                    </div>
-                    <div class="info-item">
-                        <label>Data de Nascimento</label>
-                        <p id="info-nascimento">Não informado</p>
+        <section class="secao-agenda">
+            <div class="container agenda-layout">
+                <div class="agenda-calendario">
+                    <div id="calendario-container">
+                        <div class="calendario-header">
+                            <button id="mes-anterior">&lt;</button>
+                            <h4 id="mes-ano-atual">Agosto 2025</h4>
+                            <button id="mes-seguinte">&gt;</button>
+                        </div>
+                        <div class="calendario-dias-semana">
+                            <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+                        </div>
+                        <div id="calendario-grid" class="calendario-grid">
+                            </div>
                     </div>
                 </div>
 
-                <div class="card-conta">
-                    <h3>Alterar Nome de Usuário</h3>
-                    <form id="form-alterar-nome">
-                        <div class="form-grupo">
-                            <label for="novo-nome">Novo Nome Completo</label>
-                            <input type="text" id="novo-nome" required>
-                        </div>
-                        <button type="submit" class="btn-principal">Salvar Nome</button>
-                    </form>
-                </div>
-
-                <div class="card-conta">
-                    <h3>Alterar Senha</h3>
-                    <form id="form-alterar-senha">
-                        <div class="form-grupo">
-                            <label for="senha-atual">Senha Atual</label>
-                            <input type="password" id="senha-atual" required>
-                        </div>
-                        <div class="form-grupo">
-                            <label for="nova-senha">Nova Senha</label>
-                            <input type="password" id="nova-senha" required>
-                        </div>
-                        <button type="submit" class="btn-principal">Alterar Senha</button>
-                    </form>
-                    <div id="feedback-senha" class="feedback-mensagem"></div>
+                <div class="agenda-detalhes-dia">
+                    <h3 id="data-selecionada-titulo">Consultas do dia 25/08/2025</h3>
+                    <div id="lista-consultas-dia">
+                        <div class="card-consulta"><div class="horario">10:00</div><p class="especialidade">Cardiologia com Dr. João Carlos Pereira</p><p class="hospital">Hospital Central de Salinas</p></div>
+                        <div class="card-consulta"><div class="horario">14:30</div><p class="especialidade">Clínica Geral com Dr. Ricardo Bastos</p><p class="hospital">Hospital Central de Salinas</p></div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-
+    
     <div id="barra-lateral-usuario" class="barra-lateral">
         <div class="barra-lateral-cabecalho"><h3>Área do Paciente</h3><button id="btn-fechar-barra-lateral" class="btn-fechar-barra-lateral">×</button></div>
         <div class="perfil-barra-lateral"><div class="avatar-perfil"><i class="fas fa-user-circle"></i></div><div class="info-perfil"><h4>Nome do Usuário</h4><p>email@do.usuario</p></div></div>
@@ -92,14 +72,14 @@
             <ul>
                 <li><a href="minha-conta.html"><i class="fas fa-user-edit"></i> Minha Conta</a></li>
                 <li><a href="agenda.html"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
-                <li><a href="acesso.html"><i class="fas fa-file-medical"></i> Histórico de Consulta</a></li>
+                <li><a href="acesso.html"><i class="fas fa-file-medical"></i> Historico de Consultas</a></li>
                 <li><a href="documentos.html"><i class="fas fa-folder-open"></i> Documentos</a></li>
             </ul>
         </nav>
         <div class="rodape-barra-lateral"><button class="btn-sair"><i class="fas fa-sign-out-alt"></i> Sair da Conta</button></div>
     </div>
     <div id="fundo-barra-lateral" class="fundo-barra-lateral"></div>
-    
+
     <footer class="rodape-principal">
         <div class="container">
             <div class="conteudo-rodape"><div class="coluna-rodape coluna-sobre"><h3>Portal Saúde</h3><p>Cuidando da sua saúde com informação e tecnologia.</p></div><div class="coluna-rodape coluna-links"><h4>Links Rápidos</h4><ul><li><a href="../index.html">Início</a></li><li><a href="hospitais.html">Hospitais</a></li><li><a href="acesso-a-informacao.html">Acesso à Informação</a></li></ul></div><div class="coluna-rodape coluna-social"><h4>Siga-nos</h4><div class="icones-sociais"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div></div>
@@ -108,6 +88,6 @@
     </footer>
 
     <script src="../js/script.js"></script>
-    <script src="../js/minha-conta.js"></script>
+    <script src="../js/agenda.js"></script>
 </body>
 </html>

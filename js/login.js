@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (usuarioEncontrado) {
                     localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
-                    window.location.href = '../index.html'; // Redireciona para a página principal
+                    window.location.href = '../index.html';
                 } else {
                     erroDiv.textContent = 'Email ou senha incorretos.';
                     erroDiv.style.display = 'block';
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // LÓGICA PARA A PÁGINA DE CADASTRO
+    /* LÓGICA PARA A PÁGINA DE CADASTRO */
     const cadastroForm = document.getElementById('cadastro-form');
 
     if (cadastroForm) {

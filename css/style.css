@@ -1,13 +1,35 @@
 /* CONFIGURAÇÕES GERAIS */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; transition: background-color 0.3s ease, color 0.3s ease; }
-.container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 45px; padding-right: 45px; }
-.conteudo-pagina { padding: 40px 0; text-align: center; }
-.titulo-secao { text-align: center; margin-bottom: 40px; }
-.titulo-secao h2 { font-size: 32px; margin-bottom: 10px; color: #333; }
-.titulo-secao p { font-size: 16px; color: #666; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex-grow: 1;
+}
+.container { 
+    max-width: 1200px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding-left: 45px; 
+    padding-right: 45px; 
+}
 
 /* DETALHE VISUAL PARA OS TÍTULOS */
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 40px;
+}
 .titulo-secao h2 {
     position: relative;
     display: inline-block;
@@ -27,15 +49,15 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
 
 /* ESTILO PARA O BOTÃO LOGIN */
 .btn-principal {
-    background-color: #4CAF50; /* Cor de fundo verde do tema */
-    color: white;              /* Cor do texto */
-    padding: 8px 18px;         /* Espaçamento interno (vertical e horizontal) */
-    border: none;              /* Sem borda */
-    border-radius: 5px;        /* Cantos levemente arredondados */
-    font-weight: bold;         /* Texto em negrito */
-    font-size: 16px;           /* Tamanho do texto */
-    cursor: pointer;           /* Mostra a "mãozinha" ao passar o mouse */
-    transition: background-color 0.2s ease-in-out; /* Transição suave na cor */
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .btn-principal:hover {
@@ -105,12 +127,6 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
 .item-galeria img { width: 100%; height: 200px; object-fit: cover; display: block; }
 .item-galeria h3 { font-size: 18px; padding: 15px; color: #333; }
 
-/* SEÇÃO CORPO CLÍNICO  */
-.secao-corpo-clinico { padding: 60px 0; background-color: #fff; }
-.grid-medicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.card-medico { background-color: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 25px; text-align: center; border: 1px solid #eee;}
-.card-medico h3 { font-size: 20px; color: #333; margin-bottom: 5px; }
-.card-medico p { font-size: 16px; color: #4CAF50; font-weight: bold; }
 
 /* BOTÃO DE CHAMADA PARA AÇÃO */
 .secao-chamada-acao { padding: 60px 0; text-align: center; }
@@ -251,7 +267,12 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
 .lista-medicos-modal .especialidade { color: #777; font-size: 14px; margin-left: 5px; }
 .status-tag { padding: 5px 12px; border-radius: 15px; font-size: 14px; font-weight: bold; color: white; }
 
-/* SEÇÃO CORPO CLÍNICO */
+/* SEÇÃO CORPO CLÍNICO  */
+.secao-corpo-clinico { padding: 60px 0; background-color: #fff; }
+.grid-medicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.card-medico { background-color: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 25px; text-align: center; border: 1px solid #eee;}
+.card-medico h3 { font-size: 20px; color: #333; margin-bottom: 5px; }
+.card-medico p { font-size: 16px; color: #4CAF50; font-weight: bold; }
 .secao-corpo-clinico { padding: 60px 0; background-color: #fff; }
 .grid-medicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 .card-medico {
@@ -577,7 +598,94 @@ body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; t
 .feedback-mensagem.sucesso { background-color: #d4edda; color: #155724; }
 .feedback-mensagem.erro { background-color: #f8d7da; color: #721c24; }
 
+/* PÁGINA DE AGENDA */
+.agenda-layout { display: flex; gap: 40px; align-items: flex-start; margin-top: 20px;}
+.agenda-calendario { flex: 2; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.07); }
+.agenda-detalhes-dia { flex: 1; }
+.agenda-detalhes-dia h3 { font-size: 22px; margin-bottom: 20px; }
+.sem-consultas { background-color: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; color: #777; }
+.calendario-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.calendario-header button { background: none; border: none; font-size: 20px; cursor: pointer; }
+.calendario-dias-semana, .calendario-grid { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 5px; }
+.calendario-dias-semana div { font-weight: bold; font-size: 14px; }
+.calendario-grid .dia { padding: 10px 5px; border-radius: 50%; color: #aaa; }
+.calendario-grid .dia.mes-atual { color: #333; }
+.calendario-grid .dia.com-consulta { font-weight: bold; background-color: #e8f5e9; color: #388e3c; cursor: pointer; position: relative; }
+.calendario-grid .dia.com-consulta::after { content: ''; position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background-color: #4CAF50; border-radius: 50%; }
+.calendario-grid .dia.selecionado { background-color: #4CAF50; color: white; }
+.calendario-grid .dia.selecionado::after { background-color: white; }
+.card-consulta { background-color: #fff; border-left: 5px solid #4CAF50; padding: 15px; border-radius: 5px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.card-consulta .horario { font-size: 18px; font-weight: bold; }
+.card-consulta .especialidade { font-size: 16px; color: #555; margin: 5px 0; }
+.card-consulta .hospital { font-size: 14px; color: #777; }
+
+/* PÁGINA DE DOCUMENTOS */
+.secao-documentos .container {
+    max-width: 900px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.documentos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.documento-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.documento-icone {
+    font-size: 24px;
+    color: #4CAF50;
+    width: 50px;
+    text-align: center;
+    margin-right: 20px;
+}
+.documento-info {
+    flex-grow: 1;
+}
+.documento-info h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+.documento-info p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+.documento-acao .btn-secundario {
+    background: transparent;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    padding: 8px 18px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+.documento-acao .btn-secundario:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.valor-texto {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
 /* MODO ESCURO */
+body.modo-escuro .documento-item { background-color: #1e1e1e; }
+body.modo-escuro .documento-info h4 { color: #e0e0e0; }
+body.modo-escuro .documento-info p { color: #888; }
+body.modo-escuro .valor-texto { background-color: #2c2c2c; color: #e0e0e0; }
 body.modo-escuro .card-conta { background-color: #1e1e1e; }
 body.modo-escuro .card-conta h3 { color: #fff; border-bottom-color: #333; }
 body.modo-escuro .info-item label { color: #888; }
