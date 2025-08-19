@@ -41,6 +41,10 @@ Para simular um ambiente de back-end и carregar dados dinamicamente, este proje
     * Descrição: Uma vasta biblioteca de ícones vetoriais que foi utilizada em toda a interface para melhorar a usabilidade e o apelo visual, representando ações como "perfil de usuário", "alternar tema", "enviar mensagem", entre outros.
     * Referência: [https://fontawesome.com/]
 
+* # Parte Admistrativa
+    * https://glowing-goggles-wr99544jgw9hv5rr-5501.app.github.dev/areaAdiministrativa/loginAdm.html
+    *
+
 # 3. Referências e Inspirações
 
     * O design e a funcionalidade deste projeto foram inspirados em portais de saúde e sistemas de agendamento modernos.
