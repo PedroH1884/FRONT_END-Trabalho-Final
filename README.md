@@ -42,8 +42,8 @@ Para simular um ambiente de back-end и carregar dados dinamicamente, este proje
     * Referência: [https://fontawesome.com/]
 
 * # Parte Admistrativa
-    * https://glowing-goggles-wr99544jgw9hv5rr-5501.app.github.dev/areaAdiministrativa/loginAdm.html
-    *
+    * https://portalsaude-gamma.vercel.app/areaAdiministrativa/loginAdm.html - Login da Parte Adiministrativa
+    * https://portalsaude-gamma.vercel.app/areaAdiministrativa/adm.html - Parte Adiministrativa
 
 # 3. Referências e Inspirações
 
